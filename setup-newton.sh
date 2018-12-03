@@ -8,16 +8,16 @@ if [[ ! "$host" =~ ^ev ]]; then
 fi
 
 
-if module is-loaded cuda; then
+#if module is-loaded cuda; then
 
-	echo "ERROR: The only module that should be loaded is anaconda2! Do not load the CUDA module!"
-	exit 1;
+#	echo "ERROR: The only module that should be loaded is anaconda2! Do not load the CUDA module!"
+#	exit 1;
 
-elif ! module is-loaded anaconda/anaconda2-5.3.0 && conda info --envs | grep -q ^deeplearning-gpu[[:space:]]*\\*; then
-	echo "ERROR: you must load the anaconda/anaconda2-5.3.0 module and activate the deeplearning-gpu environment!"
-	exit 1
+#elif ! module is-loaded anaconda/anaconda2-5.3.0 && conda info --envs | grep -q ^deeplearning-gpu[[:space:]]*\\*; then
+#	echo "ERROR: you must load the anaconda/anaconda2-5.3.0 module and activate the deeplearning-gpu environment!"
+#	exit 1
 
-fi
+#fi
 
 module load cuda/cuda-9.0
 
