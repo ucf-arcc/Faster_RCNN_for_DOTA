@@ -14,32 +14,19 @@ We use the Faster-RCNN part of it and make some modifications based on Faster-RC
 Note that in order to achieve better results, we adjusted the order of the quadrilateral points in the annotations during training.
 . You can refer to  in DOTA\_devkit  [get_best_begin_point](https://github.com/CAPTAIN-WHU/DOTA_devkit/blob/master/dota_utils.py).
 
-## Requirements: Software
-
-1. MXNet from [the offical repository](https://github.com/dmlc/mxnet). We tested our code on [MXNet@(commit 62ecb60)](https://github.com/dmlc/mxnet/tree/62ecb60). Due to the rapid development of MXNet, it is recommended to checkout this version if you encounter any issues. 
-
-2. Python 2.7. We recommend using Anaconda2 to manage the environments and packages.
-
-3. Some python packages: cython, opencv-python >= 3.2.0, easydict. If `pip` is set up on your system, those packages should be able to be fetched and installed by running:
-```
-pip install Cython
-pip install opencv-python==3.2.0.6
-pip install easydict==1.6
-```
-4. For Windows users, Visual Studio 2015 is needed to compile cython module.
-
-
-## Requirements: Hardware
-
-Any NVIDIA GPUs with at least 4GB memory should be sufficient. 
-
 ## Installation
 
-1. Clone the repository
-~~~
-git clone https://github.com/jessemelpolio/Faster_RCNN_for_DOTA.git
-~~~
-2. For Windows users, run ``cmd .\init.bat``. For Linux user, run `sh ./init.sh`. The scripts will build cython module automatically and create some folders.
+This fork of the code has been modified to make installation on UCF ARCC clusters easier, so the scripts and these instructions will only work there.  If you are not using this on an ARCC cluster, please see the original upstream repo. Currently, this must be run on 
+the Newton cluster.
+
+1. Make sure you have the anaconda2 module loaded.  At the time of this writing, this would be achieved by running `module load anaconda/anaconda2-5.3.0`. You should *not* have a CUDA module loaded. `module unload cuda`.
+
+2. Activate the 'deeplearning-gpu' environment `source activate deeplearning-gpu`
+
+3. Clone this repository and `cd` into it.
+
+4. Run `./setup-newton.sh`. this script will launch a job on a GPU node and build the code.  This only needs to be run once.
+
 
 ## Demo & Deformable Model
 
